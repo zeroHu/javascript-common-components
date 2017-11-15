@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>dialog</title>
+    <link rel="stylesheet" href="dialog.css">
+    <script src="../jquery.js"></script>
+    <style>
+    body {
+        background: #fff;
+    }
+    .code {
+        margin:20px 0;
+        white-space: pre;
+        background: #efefef;
+        border:1px solid #999;
+    }
+    .red {
+        border:none;
+        width:200px;
+        height:40px;
+        line-height: 40px;
+        background: #ff9090;
+        color:#fff;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>这是dialog 插件页面</h2>
+        <h3>先行体验</h3>
+        <div class="clickfun">(1)点击确认或者取消反馈:<span></span></div>
+        <button class="red" onclick="dialogone()">调用jquery dialog1</button>
+        <button class="red" onclick="dialogtwo()">调用jquery dialog2</button>
+        <button class="red" onclick="dialogthree()">调用jquery dialog3</button>
+        <button class="red" onclick="dialogfour()">调用jquery dialog4</button>
+
+
+        <!-- 配置说明 -->
+        <h4>可配置参数说明</h4>
+        <div class="code">
+        参数：
+        {
+            id: "dialog-wrapper",//定义 id name
+            msg: "",//提示message
+            cls: "dialog-wrapper",// class name
+            closebtn: ".close",//关闭class name
+            auto: false,//是否自动消失
+            modal: true,//是否需要 mask 灰色透明蒙层
+            buttons: {
+                // 点击确定回调函数
+                openfun: function() {
+                    console.log('你点击了确定');
+                },
+                // 点击取消回调函数
+                closefun: function() {
+                    console.log('你点击了取消');
+                }
+            }
+        }
+        </div>
+        <h4>调用方式说明</h4>
+        <div class="code">
+        $.Dialogs(Object);
+        这里的Object 就是上面👆的参数组成的对象
+        </div>
+        <h4>调用示例</h4>
+        <!-- 第一个调用dailog -->
+        <p>第一个调用dailog</p>
+        <!-- <button onclick="dialogone()">调用jquery dialog</button> -->
+        <div class="code">
+        $.Dialogs();
+        </div>
+        <!-- 第二个调用dialog -->
+        <p>第二个调用dialog</p>
+        <!-- <button onclick="dialogtwo()">调用jquery dialog</button> -->
+        <div class="code">
+        $.Dialogs({
+            msg: "hello world i am zero",
+            buttons: {
+                openfun: function() {
+                    console.log('i am open done');
+                    $('.clickfun span').html('点击了确认');
+                },
+                closefun: function() {
+                    console.log('i am close done');
+                    $('.clickfun span').html('点击了取消');
+                }
+            }
+        });
+        </div>
+        <!-- 第三个调用dialog -->
+        <p>第三个调用dialog</p>
+        <!-- <button onclick="dialogthree()">调用jquery dialog3</button> -->
+        <div class="code">
+        $.Dialogs({
+            msg:'我是dialog3',
+            auto:true,
+            mask:false
+        });
+        </div>
+        <p>第4个调用dialog</p>
+        <!-- 第4个调用dialog -->
+        <!-- <button onclick="dialogfour()">调用jquery dialog4</button> -->
+        <div class="code">
+        $.Dialogs({
+            msg:'我是dialog4',
+            buttons: {
+                openfun: function() {
+                    console.log('i am open done');
+                    $('.clickfun span').html('点击了确认');
+                }
+            }
+        });
+        </div>
+
+    </div>
+    <script src="dialog.js"></script>
+    <script>
+    function dialogone(){
+        $.Dialogs();
+    }
+    function dialogtwo() {
+        $.Dialogs({
+            msg: "我是dialog2",
+            buttons: {
+                openfun: function() {
+                    console.log('i am open done');
+                    $('.clickfun span').html('点击了确认');
+                },
+                closefun: function() {
+                    console.log('i am close done');
+                    $('.clickfun span').html('点击了取消');
+                }
+            }
+        });
+    }
+    function dialogthree(){
+        $.Dialogs({
+            msg:'我是dialog3',
+            auto:true,
+            mask:false,
+            closebtn:''
+        });
+    }
+    function dialogfour(){
+        $.Dialogs({
+            msg:'我是dialog4',
+            buttons: {
+                openfun: function() {
+                    console.log('i am open done');
+                    $('.clickfun span').html('点击了确认');
+                }
+            }
+        });
+    }
+    </script>
+</body>
+
+</html>

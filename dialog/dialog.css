@@ -1,0 +1,52 @@
+.dialog-mask {
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    user-select: none;
+    z-index: 999999;
+    background-color: #000;
+    opacity: .5;
+}
+
+.dialog-content {
+
+    box-sizing: border-box;
+    position: absolute;
+    border: 1px solid #666;
+    box-sizing: border-box;
+    width: 350px;
+    z-index: 999999;
+    left: 50%;
+    top: 50%;
+    margin-left: -180px;
+    margin-top: -70px;
+    background: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.dialog-content .close {
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+
+.dialog-content .msg {
+    margin: 20px;
+    text-align: justify;
+}
+
+.dialog-content .dialog-comfirm {
+    display: inline-block;
+    width: 100px;
+    border: 1px solid #999;
+}
+
+.dialog-content .dialog-cancel {
+    display: inline-block;
+    margin-left: 50px;
+    width: 100px;
+    border: 1px solid #999;
+}
