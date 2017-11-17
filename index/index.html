@@ -5,6 +5,17 @@
     <meta charset="UTF-8">
     <title>这是zero的主页</title>
     <style>
+    body {
+        background: #151515;
+        color: #fff;
+    }
+
+    a {
+        color: #fff;
+        outline: none;
+        text-decoration: none;
+    }
+
     ul {
         list-style: none;
     }
@@ -20,8 +31,8 @@
     }
 
     .text-1 {
-        stroke: #3498db;
-        text-shadow: 0 0 5px #3498db;
+        stroke: #fb0d1c;
+        text-shadow: 0 0 5px #fb0d1c;
         animation-delay: -1.5s;
     }
 
@@ -32,14 +43,14 @@
     }
 
     .text-3 {
-        stroke: #e74c3c;
-        text-shadow: 0 0 5px #e74c3c;
+        stroke: #31fd6f;
+        text-shadow: 0 0 5px #31fd6f;
         animation-delay: -4.5s;
     }
 
     .text-4 {
-        stroke: #9b59b6;
-        text-shadow: 0 0 5px #9b59b6;
+        stroke: #1ca9fa;
+        text-shadow: 0 0 5px #1ca9fa;
         animation-delay: -6s;
     }
 
@@ -48,25 +59,59 @@
             stroke-dashoffset: -400;
         }
     }
+
+    ul li {
+        float: left;
+        margin: 0 20px;
+    }
+
+    .tui-item {
+        display: inline-block;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        color: #fb0e1c;
+        line-height: 100px;
+        border: 1px solid #fb0e1c;
+    }
+    .navtion {
+        text-align: center;
+    }
+    .navtion a {
+        margin:0 50px;
+    }
+    .content-box {
+        width:900px;
+        margin:auto;
+    }
     </style>
 </head>
 
 <body>
-    <svg width="100%" height="100">
-        <text text-anchor="middle" x="50%" y="50%" class="text text-1">
-            ZERO'S WEBSITE
-        </text>
-        <text text-anchor="middle" x="50%" y="50%" class="text text-2">
-            ZERO'S WEBSITE
-        </text>
-        <text text-anchor="middle" x="50%" y="50%" class="text text-3">
-            ZERO'S WEBSITE
-        </text>
-        <text text-anchor="middle" x="50%" y="50%" class="text text-4">
-            ZERO'S WEBSITE
-        </text>
-    </svg>
-    <nav>
+    <header>
+        <svg width="100%" height="100">
+            <text text-anchor="middle" x="50%" y="50%" class="text text-1">
+                ZERO'S WEBSITE
+            </text>
+            <text text-anchor="middle" x="50%" y="50%" class="text text-2">
+                ZERO'S WEBSITE
+            </text>
+            <text text-anchor="middle" x="50%" y="50%" class="text text-3">
+                ZERO'S WEBSITE
+            </text>
+            <text text-anchor="middle" x="50%" y="50%" class="text text-4">
+                ZERO'S WEBSITE
+            </text>
+        </svg>
+    </header>
+    <nav class="navtion">
+        <a href="http://vue.zeroyh.cn" class="tui-item">VUE</a>
+        <a href="http://vue.zeroyh.cn" class="tui-item">NODE</a>
+        <a href="http://vue.zeroyh.cn" class="tui-item">BLOG</a>
+    </nav>
+    <div class="content-box">
+        <h4>本站内容简介</h4>
         <ul>
             <li>
                 <a href="../dialog/dialog.html">dialog 弹窗体验页面</a>
@@ -75,7 +120,7 @@
                 <a href="../pagination/pagination.html">pagePlugin 插件体验页面</a>
             </li>
         </ul>
-    </nav>
+    </div>
 </body>
 
 </html>
