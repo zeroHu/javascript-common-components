@@ -60,10 +60,6 @@
         }
     }
 
-    ul li {
-        float: left;
-        margin: 0 20px;
-    }
 
     .tui-item {
         display: inline-block;
@@ -75,23 +71,75 @@
         line-height: 100px;
         border: 1px solid #fb0e1c;
     }
+
     .navtion {
         text-align: center;
     }
+
     .navtion a {
-        margin:0 50px;
+        margin: 0 50px;
     }
+
     .content-box {
-        width:900px;
-        margin:auto;
+        width: 900px;
+        margin:80px auto 20px;
     }
+
     .a-green {
-        border-color:#1ca9fa;
-        color:#1ca9fa;
+        border-color: #1ca9fa;
+        color: #1ca9fa;
     }
+
     .a-blue {
-        border-color:#31fd6f;
-        color:#31fd6f;
+        border-color: #31fd6f;
+        color: #31fd6f;
+    }
+
+    h4 {
+        width: 150px;
+        margin: auto;
+        color:#ffeee8;
+        font-size: 18px;
+        text-align: center;
+        padding-bottom:4px;
+        border-bottom:2px solid red;
+        text-shadow: 1px 0 #8B4513, 0 1px #8B4513, 0 -1px #8B4513, -1px 0 #8B4513;
+        cursor: pointer;
+    }
+
+    h4:hover {
+        font-size: 22px;
+        width: 200px;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .ban-list {
+        margin-top:50px;
+        display: block;
+        overflow: hidden;
+        clear: both;
+    }
+    .ban-list ul{
+        margin:30px 0 0 50px;
+    }
+    .ban-list ul li {
+        float:left;
+        width: 200px;
+        border:1px solid #d8d6ca;
+        border-radius: 6px;
+        text-align: center;
+        padding:6px 10px;
+        margin:0 30px 30px 30px;
+    }
+    .ban-list ul li:hover {
+        background: red;
+        color: blue;
+        box-shadow: 2px 0 5px #fff;
     }
     </style>
 </head>
@@ -119,15 +167,29 @@
         <a href="http://blog.zeroyh.cn" class="tui-item a-blue">BLOG</a>
     </nav>
     <div class="content-box">
-        <h4>本站内容简介</h4>
-        <ul>
-            <li>
-                <a href="../dialog/dialog.html">dialog 弹窗体验页面</a>
-            </li>
-            <li>
-                <a href="../pagination/pagination.html">pagePlugin 插件体验页面</a>
-            </li>
-        </ul>
+        <div class="plugins ban-list">
+            <h4>插件版块</h4>
+            <ul>
+                <li>
+                    <a href="../dialog/dialog.html">dialog 弹窗体验页面</a>
+                </li>
+                <li>
+                    <a href="../pagination/pagination.html">pagePlugin 插件体验页面</a>
+                </li>
+                <li>
+                    <a href="./">待定插件</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="lear-list ban-list">
+            <h4>学习计划</h4>
+            <ul>
+                <li>
+                    <a href="../needLearn/needLearn.html">学习列表</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </body>
 

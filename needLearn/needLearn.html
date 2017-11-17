@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>需要学习的目录</title>
+    <style>
+        ul {
+            list-style: none;
+            width: 500px;
+            padding: 0px;
+            margin: 0px auto 0px;
+        }
+        body{
+            background:#ec6b44;
+            color: #fff;
+        }
+        li {
+            background: #ffeee8;
+            padding:20px;
+            color:#666;
+            margin-top: 20px;
+            cursor: initial;
+        }
+        h4 {
+            text-align: center;
+        }
+        .hasdone {
+            position: relative;
+            background: #ccc;
+            cursor: pointer;
+
+        }
+        .hasdone::after {
+            display: block;
+            box-sizing: border-box;
+            content: "over";
+            text-align: center;
+            line-height: 60px;
+            color:#eee;
+            width: 62px;
+            height:62px;
+            position: absolute;
+            background: #999;
+            top: 0;
+            right: 0;
+            cursor:initial;
+        }
+        .tips {
+            margin: 50px 0;
+            font-size: 12px;
+            text-align: center;
+            color:#eeeeee;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-box">
+        <h4>需要学习的目录</h4>
+        <ul>
+            <li class="">
+                1.css盒子模型
+            </li>
+            <li>
+                2.box-sizing
+            </li>
+            <li>
+                3.弹性flex布局
+            </li>
+            <li>
+                4.未知宽高元素怎么上下左右垂直居中
+            </li>
+            <li>
+                5.原型链，对象，构造函数
+            </li>
+            <li>
+                6.了解http2.0,websocket,https
+            </li>
+            <li>
+                7.webpack的入口文件怎么配置,webpack性能
+            </li>
+            <li>
+                8.DOM事件中target和currentTarget的区别
+            </li>
+            <li>
+                9.深拷贝的实现原理
+            </li>
+            <li>
+                10.什么是函数柯里化？以及说一下JS的API有哪些应用到了函数柯里化的实现？
+            </li>
+            <li>
+                11.ES6的箭头函数this问题，以及拓展运算符
+            </li>
+            <li>
+                12.JS模块化Commonjs,UMD,CMD规范的了解，以及ES6的模块化跟其他几种的区别，以及出现的意义
+            </li>
+            <li>
+                13.XSS是什么，攻击原理，怎么预防
+            </li>
+            <li>
+                14.线性顺序存储结构和链式存储结构有什么区别？以及优缺点
+            </li>
+        </ul>
+        <p class="tips">tips:完成的学习模块我会加上over 并且给改版块加上一个学习过程记录链接</p>
+    </div>
+</body>
+</html>
