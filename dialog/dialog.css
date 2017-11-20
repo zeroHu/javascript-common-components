@@ -2,12 +2,6 @@ body {
     background: #fff;
 }
 
-.code {
-    margin: 20px 0;
-    white-space: pre;
-    background: #efefef;
-    border: 1px solid #999;
-}
 
 .red {
     border: none;

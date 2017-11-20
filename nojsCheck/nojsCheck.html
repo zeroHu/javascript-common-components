@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>利用锚点实现无js切换tab</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <style>
+        .picture {
+            width: 200px;
+            height: 200px;
+            background: #eee;
+            overflow: hidden;
+        }
+        .picture .list {
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            font-size: 30px
+        }
+
+        .button {
+            width: 200px;
+            height: 20px;
+            margin-top:20px;
+            text-align: right;
+        }
+
+        .button a {
+            display: inline-block;
+            border:1px solid red;
+            text-decoration: none;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div class="blog-box">
+        <div class="picture">
+            <div class="list" id="one">1</div>
+            <div class="list" id="two">2</div>
+            <div class="list" id="three">3</div>
+        </div>
+        <div class="button">
+            <a class="alist" href="#one">1</a>
+            <a class="alist" href="#two">2</a>
+            <a class="alist" href="#three">3</a>
+        </div>
+        <p class="head">实现原理</p>
+        <p class="text">利用锚点的展示每块的逻辑，将不需要的隐藏，达到check的效果</p>
+        <p class="code">
+            css 代码
+
+            .picture {
+                width: 200px;
+                height: 200px;
+                background: #eee;
+                overflow: hidden;
+            }
+            .picture .list {
+                width: 200px;
+                height: 200px;
+                line-height: 200px;
+                text-align: center;
+                font-size: 30px
+            }
+
+            .button {
+                width: 200px;
+                height: 20px;
+                margin-top:20px;
+                text-align: right;
+            }
+
+            .button a {
+                display: inline-block;
+                border:1px solid red;
+                text-decoration: none;
+                width: 20px;
+                height: 20px;
+                text-align: center;
+                line-height: 20px;
+                font-size: 12px;
+                color:red;
+            }
+        </p>
+        <p class="yuan">原文地址：张鑫旭大神的 http://www.zhangxinxu.com/study/201009/anchor-and-div-show.html</p>
+    </div>
+</body>
+</html>
