@@ -20,20 +20,13 @@
             background: #ffeee8;
             padding:20px;
             color:#666;
-            height: 62px;
             margin-top: 20px;
             cursor: initial;
             overflow: hidden;
         }
-        li a {
-            box-sizing: border-box;
-            padding: 20px;
-            position: absolute;
-            left: 0;
-            top: 0;
-            display: inline-block;
-            width: 100%;
+        a li{
             height:inherit;
+            color:#fff;
         }
         h4 {
             text-align: center;
@@ -48,7 +41,7 @@
         .hasdone::after {
             display: block;
             box-sizing: border-box;
-            content: "over";
+            content: "off";
             text-align: center;
             line-height: 60px;
             color:#eee;
@@ -73,12 +66,16 @@
     <div class="content-box">
         <h4>需要学习的目录</h4>
         <ul>
-            <li class="hasdone">
-                <a href="./css-box.html">1.css盒子模型</a>
-            </li>
-            <li class="hasdone">
-                <a href="./box-sizing.html">2.box-sizing</a>
-            </li>
+            <a href="./css-box.html">
+                <li class="hasdone">
+                    1.css盒子模型
+                </li>
+            </a>
+            <a href="./box-sizing.html">
+                <li class="hasdone">
+                    2.box-sizing
+                </li>
+            </a>
             <li>
                 3.弹性flex布局
             </li>
