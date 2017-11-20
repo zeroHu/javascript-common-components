@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css 盒模型</title>
+    <link rel="stylesheet" href="./blog-style.css">
+</head>
+<body>
+    <div class="blog-box">
+        <h3>css盒模型</h3>
+        <p class="head">盒子模型定义</p>
+            <p class="text">在一个文档中，每个
+                <span class="imp-2">元素</span>
+                都被表示为一个
+                <span class="imp-2">矩形的盒子</span>
+                确定这些盒子的尺寸，属性（比如颜色，背景，边框），和位置是渲染引擎的目标。&nbsp;
+                使用标准盒模型描述这些矩形盒子中的每一个，这个模型描述了元素所占的内容。每个盒子有4个边：
+                <span class="imp-1">content ，padding ，border ，margin </span>
+            </p>
+        <p class="head">盒模型分类</p>
+            <p class="text">盒子模型分为 <span class="imp-2">IE盒模型和W3C标准盒模型</span></p>
+        <p class="head">IE盒模型和W3C标准盒模型的区别</p>
+            <p class="text">w3c标准：属性width和height只包含content，不包含border和padding</p>
+            <p class="text">IE盒标准：属性width和height包含border和padding，指的是content+border+padding</p>
+
+        <p class="tips">ie8+可以使用box-sizing来选择是选用IE盒模型还是W3C模型,box-sizing默认是content-box(w3c标准)，可以使用border-box来选择IE盒模型</p>
+        <img src="../images/css-box.jpg" alt="">
+        <p class="head">用公式来表达</p>
+        <p class="code">
+        content-box（标准盒模型）
+            width = contentWidth
+            height = contentHeight
+        border-box（IE盒模型）
+            width = border + padding + contentWidth
+            height = border + padding + contentHeight
+        </p>
+    </div>
+</body>
+</html>

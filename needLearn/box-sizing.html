@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>box-sizing</title>
+    <link rel="stylesheet" href="./blog-style.css">
+</head>
+<body>
+    <div class="blog-box">
+        <h3>box-sizing</h3>
+        <p class="head">box-sizing介绍</p>
+        <p class="text">就是width = contentWidth(content-box) 或者是 width = padding+border+contentWidth(border-box)</p>
+        <p class="code">
+        /* Keyword values */
+        box-sizing: content-box;
+        box-sizing: border-box;
+
+        /* Global values */
+        box-sizing: inherit;
+        box-sizing: initial;
+        box-sizing: unset;
+        </p>
+        <img src="../images/box-sizing.jpg" alt="">
+
+
+        <!-- 拓展一下BFC -->
+        <h3>BFC</h3>
+        <p class="head">了解BFC之前需要先了解BOX</p>
+            <p class="text">box是css的最基本单位，元素的类型和diplay决定了box的类型，不同的box，会参与不同的formatting context(如何渲染文档的容器)容器的盒子有<span class="imp-2"><span class="imp-1">block-level box</span>:display 属性为 block, list-item, table 的元素</span><span class="imp-2"><span class="imp-1"> <span class="imp-1">inline-level box</span>:display 属性为 inline, inline-block, inline-table</span></p>
+        <p class="head">BFC(Block formatting context)直译为"块级格式化上下文"。它是一个独立的渲染区域，只有Block-level box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干。</p>
+
+        <p class="head">BFC布局规则：</p>
+        <p class="code">
+        内部的Box会在垂直方向，一个接一个地放置。
+        Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠 每个元素的margin box的左边,
+        与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。
+        BFC的区域不会与float box重叠。
+        BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。
+        计算BFC的高度时，浮动元素也参与计算。
+        </p>
+
+        <p class="head">哪些元素会生成BFC?</p>
+        <p class="code">
+        根元素
+        float属性不为none
+        position为absolute或fixed
+        display为inline-block, table-cell, table-caption, flex, inline-flex
+        overflow不为visible
+        </p>
+        <p class="yuan">参考原文博客地址:https://www.w3ctech.com/topic/865</p>
+
+    </div>
+</body>
+</html>
