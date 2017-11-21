@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>radioBeauty</title>
+    <link rel="stylesheet" href="../blog-style.css">
     <style>
+    /*radio beauty*/
     .radio-beauty-container {
         font-size: 0;
     }
@@ -37,11 +39,58 @@
         background-color: green;
         background-clip: content-box;
     }
+
+
+    /*checkbox*/
+    .check-beauty-container {
+        margin:20px 0;
+    }
+    .checkbox-beauty {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+        border:1px solid green;
+        margin:0 30px;
+    }
+    /*.checkbox-beauty::after {
+        position: absolute;
+        display: inline-block;
+        content: '✔';
+        top: 0;
+        left: 4px;
+        text-align: center;
+        color:green;
+    }*/
+    input[type="checkbox"]:checked + .checkbox-beauty::after{
+        position: absolute;
+        display: inline-block;
+        content: '✔';
+        top: 0;
+        left: 4px;
+        text-align: center;
+        color:green;
+    }
+
+    /*backgorund-clip*/
+    .test-background-clip {
+        margin:20px;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        padding:5px;
+        background: red;
+        border:1px solid red;
+        background-clip: content-box;
+    }
     </style>
 </head>
 
 <body>
     <div class="blog-box">
+        <h3>radio beauty</h3>
         <div class="radio-beauty-container">
             <label>
                 <span class="radio-name">前端工程师</span>
@@ -59,6 +108,50 @@
                 <label for="radioName3" class="radio-beauty"></label>
             </label>
         </div>
+
+        <h3>checkbox</h3>
+        <div class="check-beauty-container">
+            <span>苹果</span>
+            <input type="checkbox" checked name="checkboxName" id="checkboxName1" hidden/>
+            <label for="checkboxName1" class="checkbox-beauty"></label>
+
+            <span class="checkbox-name">香蕉</span>
+            <input type="checkbox" name="checkboxName" id="checkboxName2" hidden />
+            <label for="checkboxName2" class="checkbox-beauty"></label>
+
+            <span class="checkbox-name">橘子</span>
+            <input type="checkbox" name="checkboxName" id="checkboxName3" hidden />
+            <label for="checkboxName3" class="checkbox-beauty"></label>
+        </div>
+
+        <h3>浅谈background-clip</h3>
+        <div class="head">
+            background-clip的效果
+        </div>
+        <p class="text">规定背景的绘制区域</p>
+
+        <p class="head">示例</p>
+
+        <span class="test-background-clip"></span>
+
+        <p class="code">
+            html : span
+            css :
+                span {
+                    display: inline-block;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    padding:5px;
+                    background: red;
+                    border:1px solid red;
+                    background-clip: content-box;
+                }
+        </p>
+
+
+        <p class="yuan">原文地址:https://github.com/jawil/blog/issues/8</p>
+
     </div>
 </body>
 
