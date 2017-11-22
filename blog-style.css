@@ -6,6 +6,9 @@
 h3 {
     text-align: center;
 }
+a {
+    text-decoration: none;
+}
 .head {
     border-left:3px solid #ff9090;
     padding-left: 10px;
@@ -42,12 +45,15 @@ h3 {
     color:red;
     font-weight:bold;
 }
+
 .imp-2 {
     color:#000;
     font-weight: bold;
 }
+
 .code {
     margin:20px;
+    overflow: scroll;
     white-space: pre;
     /*background: #f8f8f8;*/
     background: #384047;
