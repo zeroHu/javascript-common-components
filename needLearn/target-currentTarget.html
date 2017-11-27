@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>target 与 currentTarget</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <style>
+        img {
+            width: 40%;
+        }
+    </style>
+</head>
+<body>
+    <div class="blog-box">
+        <h3>target 与 currentTarget</h3>
+        <div class="head">target 定义</div>
+        <p class="text">This property of event objects is the object the event was dispatched on. It is different than event.currentTarget when the event handler is called in bubbling or capturing phase of the event.</p>
+        <div class="head">currentTarget 定义</div>
+        <p class="text">Identifies the current target for the event, as the event traverses the DOM. It always refers to the element the event handler has been attached to as opposed to event.target which identifies the element on which the event occurred.</p>
+        <p class="head">想理解这两者的区别和联系呢 ，需要先明白dom事件中的捕获机制和冒泡机制</p>
+        <p class="head">冒泡和捕获</p>
+        <p class="text">
+            在页面中点击一个元素，事件是从这个元素的祖先元素上逐层传递下来的。这个阶段称为时间的捕获阶段。当事件传递到这个元素后，又会逐层的把事件传递回去，直到跟元素为止。这个阶段的事件成为冒泡事件
+        </p>
+        <div class="img">
+            <img src="http://ww4.sinaimg.cn/large/68250c36gw1eofufrk2kxj20cj0aht8w.jpg" alt="">
+            <img src="http://ww4.sinaimg.cn/large/68250c36gw1eofufqrs15j20ck0abjrj.jpg" alt="">
+        </div>
+        <p class="head">addEventListenr 监听</p>
+        <p class="code">
+        当我们点击一个元素的时候，可以指定是在捕获阶段绑定还是在冒泡阶段绑定。
+        当addEventListener的第三个参数为true的时候，代表在捕获阶段绑定，
+        false或者为空的时候表示在冒泡阶段绑定
+        </p>
+
+        <p class="head">
+            下面的代码根据情况不同，返回的结果不同
+        </p>
+        <figure class="code"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"a"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"b"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"c"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"d"</span><span class="nt">&gt;&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'a'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'target:'</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s1">'&amp;currentTarget:'</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+    <span class="p">});</span>    
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'b'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'target:'</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s1">'&amp;currentTarget:'</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+    <span class="p">});</span>    
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'c'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'target:'</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s1">'&amp;currentTarget:'</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+    <span class="p">});</span>    
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'d'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'target:'</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s1">'&amp;currentTarget:'</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">currentTarget</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span></code></pre></figure>
+
+
+        <p class="head">
+            上面如果是冒泡阶段，当我们点击最里面的元素d的时候，会依次输出
+        </p>
+        <p class="code">
+        target:d currentTarget:d
+        target:d currentTarget:c
+        target:d currentTarget:b
+        target:d currentTarget:a:
+        </p>
+
+        <p class="head">
+            我们把事件都绑定在捕获阶段，然后还是点击最里层的元素d
+        </p>
+        <p class="code">
+        target:d currentTarget:a
+        target:d currentTarget:b
+        target:d currentTarget:c
+        target:d currentTarget:d
+        </p>
+    
+        <div id="a">
+            <div id="b">
+              <div id="c">
+                <button id="d">this is d btn</button>
+              </div>
+            </div>
+        </div>
+
+         <p class="yuan">原文链接:http://www.calledt.com/target-and-currenttarget/</p>
+    </div>
+    <script>
+        document.getElementById('a').addEventListener('click', function(e) {
+          console.log('target:' + e.target.id + '&currentTarget:' + e.currentTarget.id);
+        },true);    
+        document.getElementById('b').addEventListener('click', function(e) {
+          console.log('target:' + e.target.id + '&currentTarget:' + e.currentTarget.id);
+        },true);    
+        document.getElementById('c').addEventListener('click', function(e) {
+          console.log('target:' + e.target.id + '&currentTarget:' + e.currentTarget.id);
+        },true);    
+        document.getElementById('d').addEventListener('click', function(e) {
+          console.log('target:' + e.target.id + '&currentTarget:' + e.currentTarget.id);
+        },true);
+    </script>
+</body>
+</html>
