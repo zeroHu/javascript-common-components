@@ -8,6 +8,9 @@
         img {
             width: 40%;
         }
+        #a {
+            margin: 20px;
+        }
     </style>
 </head>
 <body>
@@ -20,7 +23,7 @@
         <p class="head">想理解这两者的区别和联系呢 ，需要先明白dom事件中的捕获机制和冒泡机制</p>
         <p class="head">冒泡和捕获</p>
         <p class="text">
-            在页面中点击一个元素，事件是从这个元素的祖先元素上逐层传递下来的。这个阶段称为时间的捕获阶段。当事件传递到这个元素后，又会逐层的把事件传递回去，直到跟元素为止。这个阶段的事件成为冒泡事件
+            在页面中点击一个元素，事件是从这个元素的祖先元素上逐层传递下来的。这个阶段称为时间的<span class="imp-1">捕获阶段</span>。当事件传递到这个元素后，又会逐层的把事件传递回去，直到跟元素为止。这个阶段的事件称为<span class="imp-1">冒泡阶段</span>
         </p>
         <div class="img">
             <img src="http://ww4.sinaimg.cn/large/68250c36gw1eofufrk2kxj20cj0aht8w.jpg" alt="">
@@ -29,8 +32,8 @@
         <p class="head">addEventListenr 监听</p>
         <p class="code">
         当我们点击一个元素的时候，可以指定是在捕获阶段绑定还是在冒泡阶段绑定。
-        当addEventListener的第三个参数为true的时候，代表在捕获阶段绑定，
-        false或者为空的时候表示在冒泡阶段绑定
+        <span class="imp-2">当addEventListener的第三个参数为true的时候，代表在捕获阶段绑定，</span>
+        <span class="imp-2">false或者为空的时候表示在冒泡阶段绑定</span>
         </p>
 
         <p class="head">
@@ -80,6 +83,7 @@
         target:d currentTarget:d
         </p>
     
+        <p class="head">打开console，点击下面button 看结果</p>
         <div id="a">
             <div id="b">
               <div id="c">
@@ -88,7 +92,7 @@
             </div>
         </div>
 
-         <p class="yuan">原文链接:http://www.calledt.com/target-and-currenttarget/</p>
+         <p class="yuan">原文链接:<a href="http://www.calledt.com/target-and-currenttarget/" target="_blank">http://www.calledt.com/target-and-currenttarget/</a></p>
     </div>
     <script>
         document.getElementById('a').addEventListener('click', function(e) {
