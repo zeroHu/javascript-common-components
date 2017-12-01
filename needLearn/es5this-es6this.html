@@ -9,7 +9,80 @@
     <div class="blog-box">
         <h3>this</h3>
         <div class="head">es5 this 和 es6 this的区别</div>
-        <div class="head">es5 </div>
+            <p class="text">
+                箭头函数es6 内部的this是词法作用域，是由上下文确定，es5 内部的this 的值取决于函数被调用的方式
+            </p>
+        <h3>es6</h3>
+        <p class="head">es6 this</p>
+        <p class="code">
+            var obj = {
+                'money':100,
+                getMoney:function(){
+                    var fn = () => console.log(this);
+                    return fn();
+                }
+            }
+            obj.getMoney();//obj
+
+
+            var obj = {
+                'money':100,
+                getMoney:function(){
+                    var fn = function(){
+                        console.log(this);
+                    }
+                    return fn();
+                }
+            }
+            obj.getMoney();//window
+        </p>
+        <h3>es5</h3>
+        <p class="head">全局上下文</p>
+        <p class="code">
+            // 在浏览器中, window 对象同时也是全局对象：
+            console.log(this === window); // true
+
+            a = 37;
+            console.log(window.a); // 37
+
+            this.b = "MDN";
+            console.log(window.b)  // "MDN"
+            console.log(b)         // "MDN"
+        </p>
+        <p class="head">函数上下文，在严格模式下，this将保持他进入执行上下文时的值，所以下面的this将会默认为undefined。</p>
+        <div class="code">
+            function f1(){
+              return this;
+            }
+            //在浏览器中：
+            f1() === window;   //在浏览器中，全局对象是window
+
+            //在Node中：
+            f1() === global;
+        </div>
+        <p class="head">作为构造函数调用</p>
+        <p class="code">
+            function test(){
+                this.x = 1;
+            }
+            var o = new test();
+            alert(o.x); // 1
+        </p>
+        <p class="head">如果想要把this从一个上下文传递到另一个上下文，需要用到applay 或者 call</p>
+        <p class="code">
+            //一个对象可以作为call 或者 apply的第一个参数，并且this会被绑定到这个对象
+            var obj = {a:'custom'};
+            var a = 'Global';
+            function whatsthis(arg){
+                return this.a
+            }
+            whatsthis();//'Global'
+            whatsthis.call(obj);//'custom'
+            whatsthis.apply(obj);//'custom'
+        </p>
+        <p class="tips">
+            在函数使用this关键字的情况下，它的值可以被绑定到调用中的一个特定对象，使用所有函数继承自Function.prototype的call或apply方法。
+        </p>
     </div>
 </body>
 </html>
