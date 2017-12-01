@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>函数柯里化（currying)</title>
+    <link rel="stylesheet" href="../blog-style.css">
+</head>
+
+<body>
+    <div class="blog-box">
+        <h3>柯里化（currying)</h3>
+        <p class="head">概念:currying is a way of constructing functions that allows partial application of a function’s arguments. What this means is that you can pass all of the arguments a function is expecting and get the result, or pass a subset of those arguments and get a function back that’s waiting for the rest of the arguments. </p>
+        <p class="text">概念都是绕的，直接看例子</p>
+        <p class="code">
+            var greet = function(greeting, name) {
+              console.log(greeting + ", " + name);
+            };
+            greet("Hello", "Heidi"); //"Hello, Heidi"
+            var greet = function(word){
+                return function(name){
+                    console.log(word+','+name);
+                }
+            }
+            var saysome = greet('hello');
+            saysome('zero');// "hello,zero"
+            saysome('maray');//"hello,maray"
+
+
+            或者也可以连着写
+            greet('hello','make');
+        </p>
+
+        <p class="text">接下来问题就变得简单了 那么只要我们想传多少个参数就写记过函数在里面呗</p>
+        <p class="code">
+            var greetDeeplyCurried = function(greeting) {
+              return function(separator) {
+                return function(emphasis) {
+                  return function(name) {
+                    console.log(greeting + separator + name + emphasis);
+                  };
+                };
+              };
+            };
+        </p>
+        <p class="text">但是这样肯定是不行的，如果有100个参数，那么函数就过于冗长</p>
+        <p class="head">currying函数</p>
+        <p class="code">
+            var curryIt = function(uncurried) {
+              var parameters = Array.prototype.slice.call(arguments, 1);
+              return function() {
+                return uncurried.apply(this, parameters.concat(
+                  Array.prototype.slice.call(arguments, 0)
+                ));
+              };
+            };
+
+            var greeter = function(greeting, separator, emphasis, name) {
+              console.log(greeting + separator + name + emphasis);
+            };
+
+            var greetHello = curryIt(greeter, "Hello", ", ", ".");
+            greetHello("Heidi");
+
+            var greetGoodbye = curryIt(greeter, "Goodbye", ", ");
+            greetGoodbye(".", "Joe");
+        </p>
+        <p class="yuan">原文地址<a href="https://www.sitepoint.com/currying-in-functional-javascript/">https://www.sitepoint.com/currying-in-functional-javascript/</a></p>
+        <p class="head">topic:哪些js 的api 用到了科里化</p>
+    </div>
+</body>
+
+</html>

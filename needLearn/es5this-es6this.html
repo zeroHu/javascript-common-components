@@ -83,6 +83,24 @@
         <p class="tips">
             在函数使用this关键字的情况下，它的值可以被绑定到调用中的一个特定对象，使用所有函数继承自Function.prototype的call或apply方法。
         </p>
+        <p class="head">
+            最后一道大题
+        </p>
+        <p class="code">
+            var myObject = {
+                foo: "bar",
+                func: function() {
+                    var self = this;
+                    console.log("outer func:  this.foo = " + this.foo);//bar
+                    console.log("outer func:  self.foo = " + self.foo);//bar
+                    (function() {
+                        console.log("inner func:  this.foo = " + this.foo);//undefined
+                        console.log("inner func:  self.foo = " + self.foo);//bar
+                    }());
+                }
+            };
+            myObject.func();
+        </p>
     </div>
 </body>
 </html>
