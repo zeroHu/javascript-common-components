@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>css 居中大总结</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    table {
+        position: absolute;
+        width: 60%;
+        height: 60%;
+        text-align: center;
+        background: #92b922;
+    }
+
+    .test1 {
+        background: #de3168;
+        display: inline-block;
+        color: #fff;
+    }
+
+
+
+    .table-test {
+        position: relative;
+        left: 20px;
+        display: table-cell;
+        width: 100px;
+        height: 100px;
+        background: red;
+        vertical-align: middle; 
+        text-align: center;
+    }
+
+
+
+    .transform-test {
+        margin-left: 20px;
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: relative;
+    }
+    .content {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        background: green;
+    }
+
+
+
+    .flex-test {
+        margin:0 0 0 20px;
+        display: flex;
+        width: 100px;
+        height: 100px;
+        background: red;
+        align-items: center;
+        justify-content: center;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="blog-box">
+        <p class="head">未知宽高元素水平垂直居中办法</p>
+        <p class="text">
+            <span class="imp-2">
+                1.表格法
+                2.div元素通过display: table-cell;来让此元素会作为一个表格单元格
+                3.transform
+                4.flex弹性盒子布局
+            </span>
+        </p>
+        <p class="head">表格法例子</p>
+        <p class="code">
+            table {
+                position: absolute;
+                width: 60%;
+                height: 60%;
+                text-align: center;
+                background: #92b922;
+            }
+            .test {
+                background: #de3168;
+                display: inline-block;
+                color: #fff;
+            }
+        </p>
+        <p class="head">table-cell例子</p>
+        <p class="code">
+        .wrap {
+            width: 600px;
+            height: 600px;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            background: #92b922;
+        }
+
+        .test2 {
+            background: #de3168;
+            display: inline-block;
+            color: #fff;
+            padding: 20px;
+        }
+        </p>
+
+
+        <p class="head">table-cell</p>
+
+
+        <div class="table-test">
+            table-cell
+            <div>123</div>
+        </div>
+        <p class="head">transform</p>
+
+        <div class="transform-test">
+            transform
+            <p class="content">123</p>
+        </div>
+
+        <p class="head">flex</p>
+        <div class="flex-test">
+            flex
+            <div class="text-color">123</div>
+        </div>
+
+
+        <p class="yuan"><a target="_blank" href="http://db-murphy.github.io/2015/05/02/%E6%9C%AA%E7%9F%A5%E5%AE%BD%E9%AB%98%E5%85%83%E7%B4%A0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%8A%9E%E6%B3%95/">原文css居中总结</a></p>
+    </div>
+</body>
+
+</html>
