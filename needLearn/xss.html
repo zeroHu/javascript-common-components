@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xss</title>
+    <link rel="stylesheet" href="../blog-style.css">
+    <script src="../jquery.js"></script>
+</head>
+<body>
+    <div class="blog-box">
+        <h3>xss攻击和如何预防</h3>
+        <p class="head">xss概念先行</p>
+        <p class="code">
+        xss又称css,全称cross sitescript,跨站脚本攻击。是web程序中常见的漏洞。xss属于被动式且用于客户端的攻击方式，
+        所以容易被忽视其危害性。其中的攻击原理是<span class="imp-2">攻击者向有xss漏洞的网站输入（传入）恶意的html代码，当其它用户浏览
+        该网站的时候，这段html会自动执行。从而达到攻击的目的。</span><span class="imp-1">比如，盗取cookie。破坏页面结构，重定向到别的页面</span>
+        </p>
+        <p class="head">xss分类</p>
+        <h4>非持久型攻击也叫反射性XSS</h4>
+        <p class="code">
+            诱骗用户点击URL带攻击代码的链接，服务器解析后响应，在返回的响应内容中隐藏和嵌入攻击者的XSS代码，
+            被浏览器执行，从而攻击用户。URL可能被用户怀疑，但是可以通过短网址服务将之缩短，从而隐藏自己。
+        </p>
+
+        <h4>持久型</h4>
+
+        <p class="code">
+        比如持久型XSS通过一些正常的站内交互途径，例如发布评论，提交含有JavaScript的内容文本。这时服务器端如果没有过滤
+        或转义掉这些脚本，作为内容发布到了页面上，其他用户访问这个页面的时候就会运行这些脚本，从而被攻击。
+        </p>
+
+
+        <p class="head">如何防范</p>
+
+        <p class="text imp-1">1. 记住一句至理名言——“所有用户输入都是不可信的。“攻击不一定注入到script中</p>
+        <p class="text imp-1">2. 使用xss filter</p>
+        <p class="text imp-1">3. 使用 HttpOnly Cookie</p>
+        <p class="code">
+        1.输入过滤，对用户提交的数据进行有效性验证，仅接受指定长度范围内并符合我们期望格式的的内容提交，阻止或者忽略除此外的其他任何数据。
+        2.输出转义，当需要将一个字符串输出到Web网页时，同时又不确定这个字符串中是否包括XSS特殊字符，为了确保输出内容的完整性和正确性，输出HTML属性时可以使用HTML转义编码（HTMLEncode）进行处理，输出到script中，可以进行JS编码。
+        </p>
+
+        <p class="head">原文地址：</p>
+        <p class="yuan"><a href="http://www.imooc.com/article/13553?block_id=tuijian_wz">慕课网笔记</a></p>
+        <p class="yuan"><a href="">一介布衣大神笔记</a></p>
+    </div>
+</body>
+</html>
