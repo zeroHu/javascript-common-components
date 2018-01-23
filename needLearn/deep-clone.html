@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>深拷贝浅拷贝原理</title>
+    <link rel="stylesheet" href="../blog-style.css">
+</head>
+
+<body>
+    <div class="blog-box">
+        <h3>深浅拷贝</h3>
+        <h4>数组的浅拷贝</h4>
+        <p class="head">数组的常用拷贝方法之 concat slice</p>
+        <p class="head">concat</p>
+        <p class="code">
+        var arr = ['old',true,null,undefined];
+        var new_arr = arr.concat();
+        new_arr[0] = 'new';
+        console.log(arr);//['old',true,null,undefined]
+        console.log(new_arr);//['new',true,null,undefined]
+        </p>
+        <p class="head">slice</p>
+        <p class="code">
+        var new_arr = arr.slice();
+        </p>
+        <p class="head">浅拷贝出现的问题</p>
+        <p class="code">
+        var arr = [{old: 'old'}, ['old']];
+
+        var new_arr = arr.concat();
+
+        arr[0].old = 'new';
+        arr[1][0] = 'new';
+
+        console.log(arr) // [{old: 'new'}, ['new']]
+        console.log(new_arr) // [{old: 'new'}, ['new']]
+        </p>
+        <p class="text">
+            我们克隆了一个new_arr ，但是发现当arr的值改变的时候，new_arr的值也跟着改变了
+        </p>
+        <p class="head">总结</p>
+        <p class="tips">如果数组是基本类型，就会拷贝一份。互相不影响。而如果是对象或者数组，就会拷贝对象和数组的引用。这样无论在新旧数组中进行了修改。两者都会进行变化。我们把复制引用的方法称为浅拷贝，与之对应的就是深拷贝，深拷贝就是指完全的拷贝一个对象，即使嵌套了对象，两者也相互分离，如果修改其中一个，不会影响到宁外一个的值</p>
+
+
+        <p class="text">浅拷贝通用 思路：把对象遍历，然后属性和属性的值都放入新的对象中去</p>
+        <p class="code">
+            var shallowcopy = function(obj){
+                if(typeof obj !== 'object') return;
+                var newObj = obj instanceof Array ? [] : {};
+                for(var key in obj){
+                    if(obj.hasOwnProperty(key)){
+                        newObj[key] = obj[key];
+                    }
+                }
+                return newObj
+            }
+        </p>
+        <hr>
+
+        <h4>数组的深拷贝</h4>
+        <p class="head">适用于数组内是数组或对象或基本类型，而且还是用于对象 对象内是数组或对象。<span class="imp-1">JSON.parse(JSON.stringify(obj || arr))</span>（不能包括函数这样的）</p>
+        <p class="code">
+        var arr = ['old', 1, true, ['old1', 'old2'], {old: 1}]
+        var new_arr = JSON.parse( JSON.stringify(arr) );
+        console.log(new_arr);
+        </p>
+
+
+
+        <p class="head">浅拷贝通用 思路：把对象遍历，然后属性和属性的值都放入新的对象中去，如果是对象，我们递归调用深拷贝函数不就好了</p>
+
+        <p class="code">
+            var deepcopy = function(obj){
+                if(typeof obj !== 'object') return;
+                var newObj = obj instanceof Array ? [] : {};
+                for(var key in obj){
+                    if(obj.hasOwnProperty(key)){
+                        newObj[key] = typeof obj[key] === 'object' ? deepcopy(obj[key]) : obj[key];
+                    }
+                }
+            }
+        </p>
+
+    </div>
+
+</body>
+
+</html>
