@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>grid</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .inline-hr {
+            margin: 50px 0;
+        }
+
+        .wrapper {
+            background: yellow;
+            border:2px solid red;
+            display: grid;
+        }
+
+        .wrapper > div {
+            background: #ccc;
+            border:1px solid #333;
+        }
+
+        .grid-columns {
+            grid-template-columns: 200px 200px 200px;
+        }
+
+        .fr {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper" name="wrapper">
+        <div>one</div>
+        <div>two</div>
+        <div>three</div>
+        <div>four</div>
+        <div>five</div>
+    </div>
+
+    <hr class="inline-hr">
+
+    <div class="wrapper grid-columns" name="grid">
+        <div>one</div>
+        <div>two</div>
+        <div>three</div>
+        <div>four</div>
+        <div>five</div>
+    </div>
+
+    <hr class="inline-hr">
+
+    <div class="wrapper fr" name="fr">
+        <div>one</div>
+        <div>two</div>
+        <div>three</div>
+        <div>four</div>
+        <div>five</div>
+    </div>
+</body>
+</html>
