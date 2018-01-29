@@ -29,6 +29,39 @@
         .fr {
             grid-template-columns: 1fr 1fr 1fr;
         }
+
+        .autorows {
+            grid-template-columns: 200px repeat(1, 1fr 3fr) 50px;
+            grid-auto-rows: 100px;
+        }
+
+        .automix {
+            grid-template-columns: 200px repeat(1, 1fr 3fr) 50px;
+            grid-auto-rows: minmax(100px, auto);
+        }
+
+        .rowcolumn {
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 100px
+        }
+        .box1 {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 5;
+        }
+        .box2 {
+            grid-column-start: 2;
+            grid-column-end: 6;
+            grid-row-start: 1;
+            grid-row-end: 4;
+        }
+        .gap {
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 100px;
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+        }
     </style>
 </head>
 <body>
@@ -53,6 +86,51 @@
     <hr class="inline-hr">
 
     <div class="wrapper fr" name="fr">
+        <div>one</div>
+        <div>two</div>
+        <div>three</div>
+        <div>four</div>
+        <div>five</div>
+    </div>
+
+    <hr class="inline-hr">
+
+    <div class="wrapper autorows" name="autorows">
+        <div>one</div>
+        <div>two</div>
+        <div>three</div>
+        <div>four</div>
+        <div>five</div>
+    </div>
+
+
+    <hr class="inline-hr">
+
+    <div class="wrapper automix" name="automix">
+        <div>one</div>
+        <div>
+        two
+        <p>i am a line</p>
+        <p>i am a line</p><p>i am a line</p><p>i am a line</p><p>i am a line</p>
+        </div>
+        <div>three</div>
+        <div>four</div>
+        <div>five</div>
+    </div>
+
+    <hr class="inline-hr">
+
+    <div class="wrapper rowcolumn" name="rowcolumn">
+        <div class="box1">one</div>
+        <div class="box2">two</div>
+        <div class="box3">three</div>
+        <div class="box4">four</div>
+        <div class="bpx5">five</div>
+    </div>
+
+     <hr class="inline-hr">
+
+    <div class="wrapper gap" name="gap">
         <div>one</div>
         <div>two</div>
         <div>three</div>
