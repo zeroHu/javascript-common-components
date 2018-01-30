@@ -5,32 +5,50 @@
     <meta charset="UTF-8">
     <title>pagination页面</title>
     <link rel="stylesheet" href="pagination.css">
-    <script src="../jquery.js"></script>
-    <script src="pagination.js"></script>
+    <style>
+        .pagination-container {
+            font-size: 14px;
+            margin: 50px;
+            color: #000;
+            cursor: pointer;
+        }
+        .pagination-container a {
+            padding: 4px 12px;
+            border: 1px solid #ccc;
+        }
+        .active {
+            color: red;
+        }
+        span {
+            padding: 4px 10px;
+        }
+        .button {
+            padding: 4px 16px;
+            border:1px solid #ccc;
+        }
+        .content {
+            width: 200px;
+            height: 200px;
+            background: #ededed;
+            text-align: center;
+            font-size: 40px
+        }
+    </style>
 </head>
 
 <body>
-    <!-- dom 结构 -->
-    <!-- <div class="pager">
-        <span class="flip noPage">上一页</span>
-        <span class="curPage">1</span>
-        <a page="1" href="javascript:;">2</a>
-        <a page="2" href="javascript:;">3</a>
-        <a page="3" href="javascript:;">4</a>
-        <span>...</span>
-        <a href="javascript:;" page="8">9</a>
-        <a page="1" href="javascript:;" class="flip">下一页</a>
-    </div> -->
-    <div class="pager">
+    <p>算法参照： http://f2e.souche.com/blog/ru-he-xie-ge-jian-dan-de-fen-ye/</p>
+    <p>哎呀，自己写了个算法。。。像一团一样屡不清很烂。。。然后看别人的非常清晰。。。算法咋就这么弱呢。。。弱鸡</p>
+    <!-- pagination -->
+    <span>content 是 ajax分页请求回来的数据</span>
+    <div class="content">
+
     </div>
-    <!-- tips -->
-    <div class="tips">功能还未实现完...</div>
-    <script>
-        $(".pager").pagination({
-            currentIndex:1,
-            maxButtonCount:9
-        });
-    </script>
+    <div class="pagination-container">
+    </div>
+    <p>今儿先这样。。。还没封装为插件。。。</p>
+    <script src="../jquery.js"></script>
+    <script src="pagination.js"></script>
 </body>
 
 </html>
