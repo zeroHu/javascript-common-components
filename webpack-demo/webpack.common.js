@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 module.exports = {
     entry: {
         app: './src/index.js'
@@ -24,15 +25,9 @@ module.exports = {
         }]
     },
     plugins: [
-        new CleanWebpackPlugin(['dist']),
-        new HtmlWebpackPlugin({
+        new CleanWebpackPlugin(['dist']), // 每次都清空dist
+        new HtmlWebpackPlugin({ // 根据index.html 自动生成一个index.html 到dist文件夹下 自动引入js
             title: 'output new html title'
         })
-    ],
-    devtool: 'inline-source-map',
-    devServer: {
-        contentBase: './dist',
-        compress: true,
-        port: 9000
-    }
+    ]
 }
