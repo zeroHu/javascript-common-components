@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>转长短链接</title>
+    <script src="../jquery.js"></script>
+    <style>
+    * {
+        outline: none;
+    }
+
+    .title {
+      font-size: 14px;
+      color:#666;
+    }
+    .use {
+      font-size: 16px;
+      color: #000;
+      font-weight: bold;
+    }
+
+    input {
+        width: 500px;
+        padding-left: 10px;
+        height: 30px;
+        margin-top: 50px;
+    }
+
+    button {
+        border: none;
+        font-size: 18px;
+        width: 300px;
+        height: 50px;
+        margin: 50px;
+        margin-left: 150px;
+        text-align: center;
+        background: #efefef;
+        color: #333;
+    }
+    .footer {
+      margin-top: 50px;
+      color: red;
+      font-size: 12px;
+      text-align: center;
+    }
+    </style>
+    <script type="text/javascript">
+    var apiKey = '4110768210';
+
+
+    $(function() {
+        $("#submit").click(function() {
+            var long_url = $("#long_url").val();
+            var short_url = $("#short_url").val();
+            if (long_url) {
+                shorturl(long_url);
+            } else if (short_url) {
+                expandurl(short_url);
+            }
+        });
+    });
+
+
+    // 不支持回调函数，能够访问 但是没有返回数据
+    function shorturl(long_url) {
+        var apiUrl = 'http://node.zeroyh.cn/api/shorturl';
+        $.ajax({
+            url: apiUrl,
+            data: {
+                url: long_url
+            },
+            success: function(data) {
+                console.log('长连接转短连接返回数据===>', JSON.stringify(data));
+                if (data[0].type == 0) {
+                    $("#short_url").val(data[0].url_short);
+                } else {
+                    $("#short_url").val('生成失败');
+                }
+            }
+        });
+    }
+
+    function expandurl(short_url) {
+        apiUrl = 'http://node.zeroyh.cn/api/expandurl',
+            $.ajax({
+                url: apiUrl,
+                data: {
+                    url: short_url
+                },
+                success: function(data) {
+                    console.log('短连接转长连接返回数据===>', JSON.stringify(data));
+                    if (data[0].type == 0) {
+                        $("#long_url").val(data[0].url_long);
+                    } else {
+                        $("#long_url").val('生成失败');
+                    }
+                }
+            });
+    }
+    </script>
+</head>
+
+<body>
+    <div class="title">
+        <p>长连接转为短连接</p>
+        或者
+        <p>短连接转为长连接</p>
+    </div>
+    <div class="use">
+      生成短连接方法：填入你想转的长连接，点击生成就可以生成短连接。
+      <br>
+      生成长连接方法：清空长连接，然后输入短连接，点击生成就可以生成长连接。
+    </div>
+
+    <br/> 长链接：
+    <input type="text" id="long_url" value="http://www.zeroyh.cn" />
+    <br/> 短链接：
+    <input type="text" id="short_url" value="http://t.cn/R8TmWR5" />
+    <br/>
+    <button id="submit">生成</button>
+
+    <div class="footer">
+      用的新浪的api转换的
+    </div>
+</body>
+
+</html>
