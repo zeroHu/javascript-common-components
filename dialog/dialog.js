@@ -20,9 +20,10 @@
                 }
             }
         }
-        this.options = $.extend({},this.defaults,opt);
+        this.options = $.extend({}, this.defaults,opt);
     }
     Dialog.prototype = {
+        constructor: Dialog,
         dialog:function(){
             var that = this;
             var tpl = '<div class="dialog-wrapper-style '+that.options.cls+'" id="'+that.options.id+'">'+
@@ -53,13 +54,13 @@
             }
             // 判断 确定取消按钮出现或者隐藏的逻辑
             if(that.sendOpt && that.sendOpt.buttons && that.sendOpt.buttons.openfun){
-                $('.dialog-comfirm').show().on('click',function(){
+                $('.dialog-comfirm').show().on('click', function(){
                     that.options.buttons.openfun();
                     that.removeDialog();
                 });
             }
             if(that.sendOpt && that.sendOpt.buttons && that.sendOpt.buttons.closefun){
-                $('.dialog-cancel').show().on('click',function(){
+                $('.dialog-cancel').show().on('click', function(){
                     that.options.buttons.closefun();
                     that.removeDialog();
                 });
