@@ -79,7 +79,7 @@
     // 写jquery 插件Dialogs
     $.extend({
         Dialogs:function(opt){
-            var dialogs = new Dialog(this,opt);
+            var dialogs = new Dialog(this, opt);
             return dialogs.dialog();
         }
     });
