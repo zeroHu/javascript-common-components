@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    ul, li {
+      list-style: none;
+    }
+    li {
+      background: blue;
+      color: #fff;
+      border-bottom: 1px solid #fff;
+    }
+
+    .open {
+      border: 1px solid red;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .wrapper {
+      position: relative;
+    }
+
+    .side-bar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      min-height: 100vh;
+      background: #eee;
+      border: 1px solid #ccc;
+      transition: width .5s;
+      padding: 5px;
+      box-shadow: 2px 0 4px rgba(0, 0, 0, .1);
+    }
+
+    .container-box {
+      transition: padding .5s;
+    }
+
+    .small-side-bar {
+      width: 80px;
+    }
+
+    .max-side-bar {
+      width: 200px
+    }
+
+    .small-container-box {
+      padding-left: 80px;
+    }
+
+    .max-container-box {
+      padding-left: 200px;
+    }
+
+    .chart {
+      display: flex;
+    }
+
+    .chart div {
+      flex: 1;
+      height: 200px;
+      border: 1px solid red;
+      background: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="side-bar small-side-bar">
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+      <span class="open">click me</span>
+      <p>反反复复</p>
+    </div>
+
+    <div class="container-box small-container-box">
+      <div>line one</div>
+      <div>line two</div>
+      <div class="chart">
+        <div>猜猜看到底是到第几行出现的问题哈,猜猜看到底是到第几行出现的问题哈,猜猜看到底是到第几行出现的问题哈,猜猜看到底是到第几行出现的问题哈,猜猜看到底是到第几行出现的问题哈,猜猜看到底是到第几行出现的问题哈,猜猜看到底是到第几行出现的问题哈,猜猜看到底是到第几行出现的问题哈,猜猜看到底是到第几行出现的问题哈</div>
+        <div></div>
+      </div>
+      <div>有很多内容的一个盒子哦</div>
+    </div>
+  </div>
+  <script src="../../jquery.js"></script>
+  <script>
+    $('.open').click(function() {
+      $sideBar = $('.side-bar')
+      $containerBox = $('.container-box')
+      if ($sideBar.hasClass('small-side-bar')) {
+        $sideBar.removeClass('small-side-bar').addClass('max-side-bar')
+        $containerBox.removeClass('small-container-box').addClass('max-container-box')
+      } else {
+        $sideBar.removeClass('max-side-bar').addClass('small-side-bar')
+        $containerBox.removeClass('max-container-box').addClass('small-container-box')
+      }
+    })
+  </script>
+</body>
+</html>
