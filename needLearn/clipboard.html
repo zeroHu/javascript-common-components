@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  .text-area {
+    margin-top: 30px;
+  }
+  
+  button, input {
+    display: block;
+    line-height: 30px;
+  }
+
+  input {
+    width: 400px;
+    padding: 10px;
+  }
+
+  button {
+    margin-top: 30px;
+    width: 200px;
+  }
+
+  .div-wrapper {
+    background: #ccc;
+    font-size: 18px;
+    margin-top: 30px;
+  }
+
+  </style>
+  <script src="../js/copy-clipboard.js"></script>
+</head>
+<body>
+  <input type="text" value="you want copy value in here">
+  <button id="copyBtn">点击复制上面input框内容</button>
+
+  <textarea name="" id="" cols="30" rows="10" class="text-area">
+    测试粘贴你刚复制的内容:
+  </textarea>
+
+  <div class="div-wrapper">
+    这是一个div，下面的button可以复制这里面的内容
+  </div>
+
+  <button id="copyDiv">点击复制上面div内容</button>
+
+  <script>
+    let btnEle = document.getElementById('copyBtn');
+    btnEle.onclick = function() {
+      let inputVal = document.getElementsByTagName('input')[0].value;
+      new CopyClipBoard(inputVal);
+    }
+
+
+    let divEle = document.getElementById('copyDiv');
+    divEle.onclick = function() {
+      let divVal = document.getElementsByTagName('div')[0].textContent;
+      new CopyClipBoard(divVal);
+    }
+  </script>
+</body>
+</html>
